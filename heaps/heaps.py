@@ -1,4 +1,4 @@
-from select import select
+import heapq
 
 
 class MinHeap:
@@ -8,7 +8,6 @@ class MinHeap:
     def insert(self, val):
         self.heap.append(val)
         self.heapifyUp(len(self.heap) - 1)
-        print(val, self.heap)
 
     def extract_min(self):
         self.heap[0],  self.heap[-1] = self.heap[-1], self.heap[0]
@@ -45,7 +44,8 @@ class MinHeap:
         if 2*index+2 >= len(self.heap):
             return 2*index+1
         else:
-            return 2*index+2 if self.heap[2*index+2] < self.heap[2*index+1] else 2*index+1
+            return 2*index+2 if self.heap[2*index+2] < self.heap[2*index+1] \
+                else 2*index+1
 
 
 m = MinHeap()
